@@ -1,0 +1,38 @@
+# References
+# https://github.com/jhass/configurate/blob/master/.rubocop.yml
+# https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+AllCops:
+  Exclude:
+    - 'config/environments/*'
+    - 'db/seeds/*'
+
+# Commonly used screens these days easily fit more than 80 characters.
+Metrics/LineLength:
+  Max: 120
+
+# Too short methods lead to extraction of single-use methods, which can make
+# the code easier to read (by naming things), but can also clutter the class
+Metrics/MethodLength:
+  Max: 20
+
+# No space makes the method definition shorter and differentiates
+# from a regular assignment.
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+# We do not need to support Ruby 1.9, so this is good to use.
+Style/SymbolArray:
+  Enabled: true
+
+# Most readable form.
+Style/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+# has_key? and has_value? are far more readable than key? and value?
+Style/DeprecatedHashMethods:
+  Enabled: false
+
+# String#% is by far the least verbose and only object oriented variant.
+Style/FormatString:
+  EnforcedStyle: percent
